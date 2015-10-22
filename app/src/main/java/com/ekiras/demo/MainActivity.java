@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView listView;
     private int bootCounter=0;
+    private int maxRecords = 400;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if(firstVisibleItem+visibleItemCount > totalItemCount-2){
+                if(firstVisibleItem+visibleItemCount > totalItemCount-2 && totalItemCount<maxRecords){
                     personAdapter.add(bootData());
                     personAdapter.notifyDataSetChanged();
                 }
